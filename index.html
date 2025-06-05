@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buat Elvira Khairunnisa Tersayang 🤍</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffe6e6;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    } 
+
+    .box {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ffc0cb;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #e75480;
+    }
+
+    #text {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    .emoji {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="musik" autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg" />
+    Browser kamu tidak mendukung audio :(
+  </audio>
+
+  <div class="box">
+    <h1>Hai... Pacarku Elvira Khairunnisa</h1>
+    <p id="text">Semangat ya sayang, untuk kuliahnya Lancar terus!</p>
+    <div class="emoji">🎓</div>
+    <button onclick="nextStep()">Lanjut Sayangku...</button>
+  </div>
+
+  <script>
+    const teksSemangat = [
+  { text: "Aku yakin kamu kuat melewati semua ujian, karena aku selalu ada di sampingmu, mendukung setiap langkahmu.", emoji: "💪" },
+  { text: "Jangan lupa istirahat juga ya dek, biar nggak capek.", emoji: "🛌" },
+  { text: "walaupun aku tidak selalu ada di samping kamu tapi Ingat, aku selalu dukung kamu dari sini.", emoji: "❤️" },
+  { text: "Selalu cerita kan hari-harimu ke Mas Pacarmu ini ya sayangku cinta ku .", emoji: "🌟" },
+  { text: "Aku selalu ada untukmu, di kala dunia jahat ke kamu..", emoji: "🤗" },
+  { text: "Kamu pintar dan kuat, aku yakin kamu bisa!", emoji: "🏆" },
+  { text: "Tidak terbayangkan sayang kamu pakai seragam impian kamu, dan aku pakai seragam impianku juga 😘", emoji: "🎉" },
+  { text: "Tetap semangat, sayang! Aku selalu di sini.", emoji: "💖" },
+  { text: "Kalau ada waktu Luang kita main-main yaa 🎊", emoji: "🥳" }
+];
+
+    let index = 0;
+
+    function nextStep() {
+      if (index < teksSemangat.length) {
+        document.getElementById("text").innerText = teksSemangat[index].text;
+        document.querySelector(".emoji").innerText = teksSemangat[index].emoji;
+        index++;
+      } else {
+        document.querySelector("button").style.display = "none";
+        document.querySelector(".emoji").innerText = "💞";
+        document.getElementById("text").innerText = "Semangat terus ya, aku sayang kamu selalu! 🎓😘";
+      }
+    }
+
+    // Autoplay fix for some browsers (trigger on user interaction)
+    document.addEventListener('click', function () {
+      const music = document.getElementById("musik");
+      if (music.paused) {
+        music.play().catch(() => {});
+      }
+    }, { once: true });
+  </script>
+
+</body>
+</html>
+
